@@ -26,7 +26,7 @@ const VIDEOJUEGOS = [
     Estado: "Pendiente",
   },
   {
-    Titulo: "Red Dead Redemption, 2",
+    Titulo: "Red Dead Redemption 2",
     Desarrollador: "Rockstar Games",
     Año: "2018-10-26",
     Genero: "Aventura",
@@ -83,29 +83,68 @@ const VIDEOJUEGOS = [
   },
 ];
 
-console.log(`${NOMBRE_APP}: ${VIDEOJUEGOS.length} juegos cargados`);
-console.table(VIDEOJUEGOS);
-
 //LISTADO 1
-const DEV = "Nintendo";
+function listarTodos(listaJuegos) {
+  const DEV = "Nintendo";
 
-console.log("---TODOS LOS JUEGOS---");
-for (const juego of VIDEOJUEGOS) {
-  const plataforma =
-    juego.Desarrollador === DEV ? "Exclusivo" : "Multiplataforma";
-  console.log(`${juego.Titulo} - ${plataforma}`);
-}
-
-//LISTADO 2
-let encontrados = 0;
-
-console.log("---FINALIZADOS Y BUENOS---");
-for (let i = 0; i < VIDEOJUEGOS.length; i++) {
-  const juego = VIDEOJUEGOS[i];
-  if (juego.Estado === "Finalizado" && juego.Puntuacion >= 95) {
-    console.log(`${juego.Titulo} - ${juego.Puntuacion}`);
-    encontrados++;
+  console.log("---TODOS LOS JUEGOS---");
+  for (const juego of listaJuegos) {
+    const plataforma =
+      juego.Desarrollador === DEV ? "Exclusivo" : "Multiplataforma";
+    console.log(`${juego.Titulo} - ${plataforma}`);
   }
 }
 
-console.log(`${encontrados} de ${VIDEOJUEGOS.length} cumplen la condición`);
+//LISTADO 2
+function filtrar(listaJuegos, estado, puntuacion) {
+  let encontrados = 0;
+
+  console.log("---FINALIZADOS Y BUENOS---");
+  for (let i = 0; i < listaJuegos.length; i++) {
+    const juego = listaJuegos[i];
+    if (juego.Estado === estado && juego.Puntuacion >= puntuacion) {
+      console.log(`${juego.Titulo} - ${juego.Puntuacion}`);
+      encontrados++;
+    }
+  }
+
+  return encontrados;
+}
+
+//LISTADO 3
+function contarPorEstado(listaJuegos) {
+  let pendientes = 0;
+  let jugando = 0;
+  let finalizados = 0;
+
+  for (const juego of listaJuegos) {
+    switch (juego.Estado) {
+      case "Pendiente":
+        pendientes++;
+        break;
+      case "Finalizado":
+        finalizados++;
+        break;
+      case "Jugando":
+        jugando++;
+        break;
+      default:
+        break;
+    }
+  }
+
+  console.log(`Pendientes: ${pendientes}, Finalizados: ${finalizados}, Jugando: ${jugando}`);
+}
+
+console.log(`${NOMBRE_APP}: ${VIDEOJUEGOS.length} juegos cargados`);
+console.table(VIDEOJUEGOS);
+
+//Llamada a Listar Todos
+listarTodos(VIDEOJUEGOS);
+
+//Llamada a filtrar
+console.log(`${filtrar(VIDEOJUEGOS, "Finalizado", 95)} de ${VIDEOJUEGOS.length} cumplen la condición`);
+console.log(`${filtrar(VIDEOJUEGOS, "Jugando", 90)} de ${VIDEOJUEGOS.length} cumplen la condición`);
+
+//Llamada a contar
+contarPorEstado(VIDEOJUEGOS);
