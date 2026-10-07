@@ -15,3 +15,12 @@ const VIDEOJUEGOS = [
 
 console.log(`${NOMBRE_APP}: ${VIDEOJUEGOS.length} juegos cargados`);
 console.table(VIDEOJUEGOS);
+
+//LISTADO 1
+const DEV = "Nintendo";
+
+console.log("---TODOS LOS JUEGOS---");
+for (const game of VIDEOJUEGOS) {
+    const plataforma = game.Desarrollador === DEV ? "Exclusivo" : "Multiplataforma";
+    console.log(`${game.Titulo} - ${plataforma}`);
+}
