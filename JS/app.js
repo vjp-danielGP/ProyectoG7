@@ -2,6 +2,7 @@ const NOMBRE_APP = "BiblioGame";
 
 const VIDEOJUEGOS = [
   {
+    Id: 1,
     Titulo: "Resident Evil 2",
     Desarrollador: "Capcom",
     Año: "2019-01-25",
@@ -10,6 +11,7 @@ const VIDEOJUEGOS = [
     Estado: "Finalizado",
   },
   {
+    Id: 2,
     Titulo: "Elden Ring",
     Desarrollador: "FromSoftware",
     Año: "2022-02-25",
@@ -18,6 +20,7 @@ const VIDEOJUEGOS = [
     Estado: "Pendiente",
   },
   {
+    Id: 3,
     Titulo: "The Legend of Zelda: Breath of the Wild",
     Desarrollador: "Nintendo",
     Año: "2017-03-03",
@@ -26,6 +29,7 @@ const VIDEOJUEGOS = [
     Estado: "Pendiente",
   },
   {
+    Id: 4,
     Titulo: "Red Dead Redemption 2",
     Desarrollador: "Rockstar Games",
     Año: "2018-10-26",
@@ -34,6 +38,7 @@ const VIDEOJUEGOS = [
     Estado: "Jugando",
   },
   {
+    Id: 5,
     Titulo: "Tekken 3",
     Desarrollador: "Namco",
     Año: "1998-04-29",
@@ -42,6 +47,7 @@ const VIDEOJUEGOS = [
     Estado: "Finalizado",
   },
   {
+    Id: 6,
     Titulo: "Metroid Prime",
     Desarrollador: "Retro Studios",
     Año: "2002-11-17",
@@ -50,6 +56,7 @@ const VIDEOJUEGOS = [
     Estado: "Pendiente",
   },
   {
+    Id: 7,
     Titulo: "Half-Life 2",
     Desarrollador: "Valve Software",
     Año: "2004-11-16",
@@ -58,6 +65,7 @@ const VIDEOJUEGOS = [
     Estado: "Pendiente",
   },
   {
+    Id: 8,
     Titulo: "BioShock",
     Desarrollador: "Irrational Games",
     Año: "2007-08-21",
@@ -66,6 +74,7 @@ const VIDEOJUEGOS = [
     Estado: "Jugando",
   },
   {
+    Id: 9,
     Titulo: "Super Mario Galaxy 2",
     Desarrollador: "Nintendo",
     Año: "2010-05-23",
@@ -74,6 +83,7 @@ const VIDEOJUEGOS = [
     Estado: "Finalizado",
   },
   {
+    Id: 10,
     Titulo: "Gran Turismo",
     Desarrollador: "Polyphony Digital",
     Año: "1998-05-12",
@@ -148,3 +158,13 @@ console.log(`${filtrar(VIDEOJUEGOS, "Jugando", 90)} de ${VIDEOJUEGOS.length} cum
 
 //Llamada a contar
 contarPorEstado(VIDEOJUEGOS);
+
+// Reto 2
+// Método listar
+function listar(lista) {
+    for (const juego of lista) {
+        console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
+    }
+}
+
+listar(VIDEOJUEGOS);
