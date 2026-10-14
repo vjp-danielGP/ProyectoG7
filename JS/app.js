@@ -193,3 +193,18 @@ if (listaTexto.length < 1) {
         console.log(juego);
     }
 }
+
+// Método añadir
+function añadir(lista, juego) {
+    const nuevoId = lista[lista.length -1].Id + 1;
+    juego.Id = nuevoId;
+    lista.push(juego);
+    return nuevoId;
+}
+
+console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, { Titulo: "Resident Evil 4",
+                                                            Desarrollador: "Capcom",
+                                                            Año: "2023-03-24",
+                                                            Genero: "Terror y supervivencia",
+                                                            Puntuacion: 93,
+                                                            Estado: "Jugando",})}`);                                                  
