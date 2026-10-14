@@ -168,3 +168,28 @@ function listar(lista) {
 }
 
 listar(VIDEOJUEGOS);
+
+// Método buscarPorTexto
+function buscarPorTexto(lista, texto) {
+    const buscado = texto.toLowerCase();
+    const resultado = [];
+
+    for (const juego of lista) {
+        const titulo = juego.Titulo.toLowerCase();
+        if (titulo.includes(buscado)) {
+            resultado.push(juego.Titulo);
+        }
+    }
+
+    return resultado;
+}
+
+const listaTexto = buscarPorTexto(VIDEOJUEGOS, prompt("Introduce el título del videojuego: "));
+
+if (listaTexto.length < 1) {
+    console.log("No existe ningun juego con ese titulo")
+} else {
+    for (const juego of listaTexto) {
+        console.log(juego);
+    }
+}
