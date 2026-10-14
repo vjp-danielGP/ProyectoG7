@@ -160,7 +160,7 @@ console.log(`${filtrar(VIDEOJUEGOS, "Jugando", 90)} de ${VIDEOJUEGOS.length} cum
 contarPorEstado(VIDEOJUEGOS);
 
 // Reto 2
-// Método listar
+// Función listar
 function listar(lista) {
     for (const juego of lista) {
         console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
@@ -169,7 +169,7 @@ function listar(lista) {
 
 listar(VIDEOJUEGOS);
 
-// Método buscarPorTexto
+// Función buscarPorTexto
 function buscarPorTexto(lista, texto) {
     const buscado = texto.toLowerCase();
     const resultado = [];
@@ -194,7 +194,7 @@ if (listaTexto.length < 1) {
     }
 }
 
-// Método añadir
+// Función añadir
 function añadir(lista, juego) {
     const nuevoId = lista[lista.length -1].Id + 1;
     juego.Id = nuevoId;
@@ -207,4 +207,22 @@ console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, { Titulo: "Resident Ev
                                                             Año: "2023-03-24",
                                                             Genero: "Terror y supervivencia",
                                                             Puntuacion: 93,
-                                                            Estado: "Jugando",})}`);                                                  
+                                                            Estado: "Jugando",})}`);
+                                                
+// Función eliminar por id
+function eliminarPorId(lista, id) {
+    for (const juego of lista) {
+        if (juego.Id === id) {
+            lista.splice(lista.indexOf(juego), 1);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+if (eliminarPorId(VIDEOJUEGOS, Number(prompt("Introduce el id del videojuego que quiera eliminar: ")))) {
+    console.log("Juego eliminado con exito")
+} else {
+    console.log("Juego no encontrado")
+}
