@@ -162,67 +162,100 @@ contarPorEstado(VIDEOJUEGOS);
 // Reto 2
 // Función listar
 function listar(lista) {
-    for (const juego of lista) {
-        console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
-    }
+  for (const juego of lista) {
+    console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
+  }
 }
 
 listar(VIDEOJUEGOS);
 
 // Función buscarPorTexto
 function buscarPorTexto(lista, texto) {
-    const buscado = texto.toLowerCase();
-    const resultado = [];
+  const buscado = texto.toLowerCase();
+  const resultado = [];
 
-    for (const juego of lista) {
-        const titulo = juego.Titulo.toLowerCase();
-        if (titulo.includes(buscado)) {
-            resultado.push(juego.Titulo);
-        }
+  for (const juego of lista) {
+    const titulo = juego.Titulo.toLowerCase();
+    if (titulo.includes(buscado)) {
+      resultado.push(juego.Titulo);
     }
+  }
 
-    return resultado;
+  return resultado;
 }
 
 const listaTexto = buscarPorTexto(VIDEOJUEGOS, prompt("Introduce el título del videojuego: "));
 
 if (listaTexto.length < 1) {
-    console.log("No existe ningun juego con ese titulo")
+  console.log("No existe ningun juego con ese titulo")
 } else {
-    for (const juego of listaTexto) {
-        console.log(juego);
-    }
+  for (const juego of listaTexto) {
+    console.log(juego);
+  }
 }
 
 // Función añadir
 function añadir(lista, juego) {
-    const nuevoId = lista[lista.length -1].Id + 1;
-    juego.Id = nuevoId;
-    lista.push(juego);
-    return nuevoId;
+  const nuevoId = lista[lista.length - 1].Id + 1;
+  juego.Id = nuevoId;
+  lista.push(juego);
+  return nuevoId;
 }
 
-console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, { Titulo: "Resident Evil 4",
-                                                            Desarrollador: "Capcom",
-                                                            Año: "2023-03-24",
-                                                            Genero: "Terror y supervivencia",
-                                                            Puntuacion: 93,
-                                                            Estado: "Jugando",})}`);
-                                                
+console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, {
+  Titulo: "Resident Evil 4",
+  Desarrollador: "Capcom",
+  Año: "2023-03-24",
+  Genero: "Terror y supervivencia",
+  Puntuacion: 93,
+  Estado: "Jugando",
+})}`);
+
 // Función eliminar por id
 function eliminarPorId(lista, id) {
-    for (const juego of lista) {
-        if (juego.Id === id) {
-            lista.splice(lista.indexOf(juego), 1);
-            return true;
-        }
+  for (const juego of lista) {
+    if (juego.Id === id) {
+      lista.splice(lista.indexOf(juego), 1);
+      return true;
     }
+  }
 
-    return false;
+  return false;
 }
 
 if (eliminarPorId(VIDEOJUEGOS, Number(prompt("Introduce el id del videojuego que quiera eliminar: ")))) {
-    console.log("Juego eliminado con exito")
+  console.log("Juego eliminado con exito")
 } else {
-    console.log("Juego no encontrado")
+  console.log("Juego no encontrado")
 }
+
+//Función estadísticas
+function estadisticas(lista) {
+
+  if (lista.length === 0) {
+    console.warn("No hay datos");
+    return;
+  }
+
+  let suma = 0;
+  let maximo = lista[0];
+
+  for (const juego of lista) {
+    suma += juego.Puntuacion;
+
+    if (juego.Puntuacion > maximo.Puntuacion) {
+      maximo = juego;
+    }
+  }
+
+  const media = suma / lista.length;
+  console.log(`Videojuegos: ${lista.length}`);
+  console.log(`Puntuación total: ${suma}`);
+  console.log(`Puntuación media: ${media.toFixed(1)}`);
+  console.log(`El juego con mayor puntuación es: ${maximo.Titulo} - ${maximo.Puntuacion}`);
+
+
+}
+
+estadisticas(VIDEOJUEGOS);
+

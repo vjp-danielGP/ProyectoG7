@@ -1,21 +1,25 @@
-1. Tema
-Biblioteca Personal de Videojuegos
+# BiblioGame
 
-2. Elemento
-Videojuego
+La aplicación se trata de una bilioteca personal de videojuegos, donde los usuarios podrán consultar el estado de sus juegos así como añadir nuevos.
 
-3. Campos
-Título, Desarrollador, Año, Género, Puntuación, Estado.
+## Datos de cada videojuego
+Id, Título, Desarrollador, Año, Género, Puntuación, Estado.
 
-4. En pareja
-Daniel crea y teclea primero
+## Sprint 0
+- Listados, filtro y recuento por estado
+- Buscar, añadir y eliminar videojuegos
+- Estadísticas de puntuación
 
-5. Nombre del proyecto
-bibliogame
+## Cómo se ejecuta
+Abrir index.html y la consola (F12)
 
-=======================
+## Uso de IA
+Ninguno
 
-1. La aplicación se trata de una bilioteca personal de videojuegos, donde los usuarios podrán consultar el estado de sus juegos así
-    como añadir nuevos.
-2. La lista guarda datos de tipo videojuego(Titulo, Desarrollador, Genero...)
-3. El html se ejecuta correctamente, y al abrir el panel de dev aparece la tabla con todos los elementos.
+## En pareja
+05/10/2026 - Daniel escribe código y hace commits
+07/10/2026 - Sergio escribe código y hace commits
+14/10/2026 - Daniel el escribe código y hace commits
+19/10/2026 - Sergio el escribe código y hace commits
+
+En cada commit aparece indicado en el mensaje que se ha añadido/modificado
