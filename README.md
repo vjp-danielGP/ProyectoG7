@@ -17,9 +17,9 @@ Abrir index.html y la consola (F12)
 Ninguno
 
 ## En pareja
-05/10/2026 - Daniel escribe código y hace commits
-07/10/2026 - Sergio escribe código y hace commits
-14/10/2026 - Daniel el escribe código y hace commits
-19/10/2026 - Sergio el escribe código y hace commits
+- 05/10/2026 - Daniel escribe código y hace commits
+- 07/10/2026 - Sergio escribe código y hace commits
+- 14/10/2026 - Daniel el escribe código y hace commits
+- 19/10/2026 - Sergio el escribe código y hace commits
 
 En cada commit aparece indicado en el mensaje que se ha añadido/modificado
