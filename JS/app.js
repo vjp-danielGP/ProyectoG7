@@ -184,7 +184,7 @@ function buscarPorTexto(lista, texto) {
   return resultado;
 }
 
-const listaTexto = buscarPorTexto(VIDEOJUEGOS, prompt("Introduce el título del videojuego: "));
+const listaTexto = buscarPorTexto(VIDEOJUEGOS, "evil");
 
 if (listaTexto.length < 1) {
   console.log("No existe ningun juego con ese titulo")
@@ -223,7 +223,7 @@ function eliminarPorId(lista, id) {
   return false;
 }
 
-if (eliminarPorId(VIDEOJUEGOS, Number(prompt("Introduce el id del videojuego que quiera eliminar: ")))) {
+if (eliminarPorId(VIDEOJUEGOS, 8)) {
   console.log("Juego eliminado con exito")
 } else {
   console.log("Juego no encontrado")
