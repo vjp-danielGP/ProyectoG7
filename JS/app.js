@@ -259,3 +259,40 @@ function estadisticas(lista) {
 
 estadisticas(VIDEOJUEGOS);
 
+// ========================= SPRINT 1 =========================
+
+// Reto 2
+
+const listado = document.querySelector("#listado");
+
+let totalJuegos = 0;
+
+function crearTarjeta (juego) {
+  const tarjeta = document.createElement("article");
+  tarjeta.classList.add("tarjeta");
+
+  const titulo = document.createElement("h3");
+  titulo.textContent = juego.Titulo;
+
+  const datos = document.createElement("parrafo");
+  datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
+
+  tarjeta.append(titulo, datos);
+  
+  return tarjeta;
+}
+
+function pintar (lista) {
+  listado.replaceChildren();
+
+  for (const juego of lista) {
+    listado.append(crearTarjeta(juego));
+    totalJuegos++;
+  }
+}
+
+pintar(VIDEOJUEGOS);
+
+const resumen = document.querySelector("#resumen");
+
+resumen.textContent = `${totalJuegos} videojuegos`;
