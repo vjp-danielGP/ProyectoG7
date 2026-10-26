@@ -177,7 +177,7 @@ function buscarPorTexto(lista, texto) {
   for (const juego of lista) {
     const titulo = juego.Titulo.toLowerCase();
     if (titulo.includes(buscado)) {
-      resultado.push(juego.Titulo);
+      resultado.push(juego);
     }
   }
 
@@ -233,8 +233,7 @@ if (eliminarPorId(VIDEOJUEGOS, 8)) {
 function estadisticas(lista) {
 
   if (lista.length === 0) {
-    console.warn("No hay datos");
-    return;
+    return null;
   }
 
   let suma = 0;
@@ -249,11 +248,8 @@ function estadisticas(lista) {
   }
 
   const media = suma / lista.length;
-  console.log(`Videojuegos: ${lista.length}`);
-  console.log(`Puntuación total: ${suma}`);
-  console.log(`Puntuación media: ${media.toFixed(1)}`);
-  console.log(`El juego con mayor puntuación es: ${maximo.Titulo} - ${maximo.Puntuacion}`);
 
+  return { total: suma, media: media, maximo: maximo }
 
 }
 
@@ -267,7 +263,7 @@ const listado = document.querySelector("#listado");
 
 let totalJuegos = 0;
 
-function crearTarjeta (juego) {
+function crearTarjeta(juego) {
   const tarjeta = document.createElement("article");
   tarjeta.classList.add("tarjeta");
 
@@ -278,21 +274,78 @@ function crearTarjeta (juego) {
   datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
 
   tarjeta.append(titulo, datos);
-  
+
   return tarjeta;
 }
 
-function pintar (lista) {
-  listado.replaceChildren();
+const resumen = document.querySelector("#resumen");
 
+function pintar(lista) {
+  listado.replaceChildren();
+  totalJuegos = 0;
   for (const juego of lista) {
     listado.append(crearTarjeta(juego));
     totalJuegos++;
   }
+  resumen.textContent = `${totalJuegos} videojuegos`;
 }
 
-pintar(VIDEOJUEGOS);
+const pEstadisticas = document.querySelector("#estadisticas");
 
-const resumen = document.querySelector("#resumen");
+function pintarEstadisticas(lista) {
+  let stats = estadisticas(lista);
 
-resumen.textContent = `${totalJuegos} videojuegos`;
+  if (stats === null) {
+    console.warn("No hay datos");
+    return;
+  } else {
+    pEstadisticas.textContent = `${stats.total} de puntos totales - ${stats.media} de puntuación media - Máxima Puntuación: ${stats.maximo.Puntuacion}`;
+  }
+}
+
+pintarEstadisticas(VIDEOJUEGOS);
+
+//Reto 2 Parte B
+
+let textoBuscado = "";
+let criterio = "ninguno";
+
+function ordenar(lista, criterio) {
+  const copia = [...lista];
+  if (criterio === "nombre") {
+    copia.sort((a, b) =>
+      a.Titulo.localeCompare(b.Titulo)
+    );
+  } else if (criterio === "puntuacion") {
+    copia.sort((a, b) => b.Puntuacion - a.Puntuacion);
+  }
+
+  return copia;
+}
+
+function actualizar() {
+  const encontrados = buscarPorTexto(VIDEOJUEGOS, textoBuscado);
+  const ordenados = ordenar(encontrados, criterio);
+  pintar(ordenados);
+}
+
+let buscador = document.querySelector("#buscador");
+let ordenPuntuacion = document.querySelector("#ordenPuntuacion");
+let ordenNombre = document.querySelector("#ordenNombre");
+
+buscador.addEventListener("input", () => {
+  textoBuscado = buscador.value;
+  actualizar();
+});
+
+ordenNombre.addEventListener("click", () => {
+  criterio = "nombre";
+  actualizar();
+});
+
+ordenPuntuacion.addEventListener("click", () => {
+  criterio = "puntuacion";
+  actualizar();
+});
+
+actualizar();
