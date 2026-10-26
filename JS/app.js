@@ -287,7 +287,13 @@ function pintar(lista) {
     listado.append(crearTarjeta(juego));
     totalJuegos++;
   }
-  resumen.textContent = `${totalJuegos} videojuegos`;
+
+  if (lista.length > 0) {
+    resumen.textContent = `Mostrando ${totalJuegos} de ${VIDEOJUEGOS.length} videojuegos`;
+  } else {
+    resumen.textContent = `No hay videojuegos que contengan ${buscador.value}`;
+  }
+  
 }
 
 const pEstadisticas = document.querySelector("#estadisticas");
