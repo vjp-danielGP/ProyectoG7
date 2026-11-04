@@ -93,6 +93,8 @@ const VIDEOJUEGOS = [
   },
 ];
 
+const DIAS_RECIENTE = 2190; // 6 años
+
 //LISTADO 1
 function listarTodos(listaJuegos) {
   const DEV = "Nintendo";
@@ -273,7 +275,14 @@ function crearTarjeta(juego) {
   const datos = document.createElement("parrafo");
   datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
 
-  tarjeta.append(titulo, datos);
+  const fecha = document.createElement("p");
+  fecha.classList.add("fecha");
+  fecha.textContent = fechaLegible(juego.Año);
+  if (diasDesde(juego.Año) <= DIAS_RECIENTE) {
+    tarjeta.classList.add("reciente");
+  }
+
+  tarjeta.append(titulo, datos, fecha);
 
   return tarjeta;
 }
@@ -324,6 +333,8 @@ function ordenar(lista, criterio) {
     );
   } else if (criterio === "puntuacion") {
     copia.sort((a, b) => b.Puntuacion - a.Puntuacion);
+  } else if (criterio === "fecha") {
+    copia.sort((a, b) => crearFecha(b.Año) - crearFecha(a.Año));
   }
 
   return copia;
@@ -338,6 +349,7 @@ function actualizar() {
 let buscador = document.querySelector("#buscador");
 let ordenPuntuacion = document.querySelector("#ordenPuntuacion");
 let ordenNombre = document.querySelector("#ordenNombre");
+let ordenFecha = document.querySelector("#ordenFecha");
 
 buscador.addEventListener("input", () => {
   textoBuscado = buscador.value;
@@ -365,6 +377,10 @@ ordenPuntuacion.addEventListener("click", () => {
 ordenPuntuacion.addEventListener("click", () => {
   elegirOrden("puntuacion")
 });
+
+ordenFecha.addEventListener("click", () => {
+  elegirOrden("fecha")
+})
 
 // Retos sesión 12
 // Parte A - Reto 1
@@ -398,3 +414,26 @@ function elegirOrden(nuevo) {
 
 criterio = leerCookie("orden") ?? "ninguno";
 actualizar();
+
+// Parte B - Reto 2
+// B2 - Tres funciones para las fechas
+
+function crearFecha(texto) {
+  return new Date(texto + "T00:00");
+}
+
+function fechaLegible(texto) {
+  return crearFecha(texto).toLocaleDateString("es-ES", 
+    {day:"numeric", month:"long", year:"numeric"}
+  );
+}
+
+function diasDesde(texto) {
+  const MS_DIA = 24 * 60 * 60 * 1000;
+  const ms = Date.now() - crearFecha(texto).getTime();
+  return Math.floor(ms/MS_DIA);
+}
+
+// B3 - La fecha en la tarjeta y lo reciente, destacado
+
+// B4 - Ordenar por fecha
