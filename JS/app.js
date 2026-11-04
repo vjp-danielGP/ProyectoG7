@@ -344,14 +344,57 @@ buscador.addEventListener("input", () => {
   actualizar();
 });
 
+/*
 ordenNombre.addEventListener("click", () => {
   criterio = "nombre";
   actualizar();
 });
+*/
 
+ordenNombre.addEventListener("click", () => {
+  elegirOrden("nombre")
+});
+
+/*
 ordenPuntuacion.addEventListener("click", () => {
   criterio = "puntuacion";
   actualizar();
 });
+*/
 
+ordenPuntuacion.addEventListener("click", () => {
+  elegirOrden("puntuacion")
+});
+
+// Retos sesión 12
+// Parte A - Reto 1
+// A1 - Guardar y leer una cookie
+
+function guardarCookie(nombre, valor, dias) {
+  const segundos = dias * 24 * 60 * 60;
+  const texto = encodeURIComponent(valor);
+  document.cookie = `${nombre}=${texto}; max-age=${segundos}; path=/`;
+}
+
+function leerCookie(nombre) {
+  const partes = document.cookie.split("; ");
+  for (const parte of partes) {
+    const [clave, valor] = parte.split("=");
+    if (clave === nombre) {
+      return decodeURIComponent(valor);
+    }
+  }
+  return null;
+}
+
+// A2 - Guardar el orden al pulsar un botón
+function elegirOrden(nuevo) {
+  criterio = nuevo;
+  guardarCookie("orden", criterio, 30);
+  actualizar();
+}
+
+// A3 - Aplicar orden al cargar
+
+criterio = leerCookie("orden") ?? "ninguno";
 actualizar();
