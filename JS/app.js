@@ -437,3 +437,30 @@ function diasDesde(texto) {
 // B3 - La fecha en la tarjeta y lo reciente, destacado
 
 // B4 - Ordenar por fecha
+
+// D - Campo validado con expresión regular
+const PATRON_TITULO = /^.{2,40}$/;
+
+const formulario = document.querySelector("#anadir");
+
+const campo = document.querySelector("#campo")
+
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault(); // Evita que la página recargue
+  const titulo = campo.value.trim();
+
+  if (!PATRON_TITULO.test(titulo)) {
+    alert("Entre 2 y 40 letras");
+    return;
+  }
+
+  añadir(VIDEOJUEGOS, {Titulo: titulo,
+    Desarrollador: "Desconocido",
+    Año: new Date().toISOString().slice(0, 10),
+    Genero: "Desconocido",
+    Puntuacion: 0,
+    Estado: "Pendiente",});
+
+  actualizar();
+
+});
