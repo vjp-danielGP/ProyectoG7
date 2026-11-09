@@ -32,5 +32,6 @@ Ninguno
 - 26/10/2026 - Sergio escribe código y hace commits
 - 04/11/2026 - Daniel el escribe código y hace commits
 - 08/11/2026 - Daniel el escribe código y hace commits (En casa)
+- 09/11/2026 - Sergio escribe código y hace commits
 
 En cada commit aparece indicado en el mensaje que se ha añadido/modificado
