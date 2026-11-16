@@ -13,7 +13,7 @@ Id, Título, Desarrollador, Año, Género, Puntuación, Estado.
 ## Sprint 1
 - La página (index.html), estilos.css, función pintar(lista) y estadísticas
 - Buscar y ordenar (botones y eventos)
-- Cookies, fechas legibles y validación utilizando una expresión regular
+- Cookies, fechas legibles y validación utilizando una expresión regular.
 
 ## Cómo se ejecuta
 Abrir index.html y la consola (F12)
