@@ -1,152 +1,152 @@
-const NOMBRE_APP = "BiblioGame";
+// const NOMBRE_APP = "BiblioGame";
 
-const VIDEOJUEGOS = [
-  {
-    Id: 1,
-    Titulo: "Resident Evil 2",
-    Desarrollador: "Capcom",
-    Año: "2019-01-25",
-    Genero: "Terror y supervivencia",
-    Puntuacion: 91,
-    Estado: "Finalizado",
-  },
-  {
-    Id: 2,
-    Titulo: "Elden Ring",
-    Desarrollador: "FromSoftware",
-    Año: "2022-02-25",
-    Genero: "Soulslike",
-    Puntuacion: 96,
-    Estado: "Pendiente",
-  },
-  {
-    Id: 3,
-    Titulo: "The Legend of Zelda: Breath of the Wild",
-    Desarrollador: "Nintendo",
-    Año: "2017-03-03",
-    Genero: "Aventura",
-    Puntuacion: 97,
-    Estado: "Pendiente",
-  },
-  {
-    Id: 4,
-    Titulo: "Red Dead Redemption 2",
-    Desarrollador: "Rockstar Games",
-    Año: "2018-10-26",
-    Genero: "Aventura",
-    Puntuacion: 97,
-    Estado: "Jugando",
-  },
-  {
-    Id: 5,
-    Titulo: "Tekken 3",
-    Desarrollador: "Namco",
-    Año: "1998-04-29",
-    Genero: "Lucha",
-    Puntuacion: 96,
-    Estado: "Finalizado",
-  },
-  {
-    Id: 6,
-    Titulo: "Metroid Prime",
-    Desarrollador: "Retro Studios",
-    Año: "2002-11-17",
-    Genero: "Acción",
-    Puntuacion: 97,
-    Estado: "Pendiente",
-  },
-  {
-    Id: 7,
-    Titulo: "Half-Life 2",
-    Desarrollador: "Valve Software",
-    Año: "2004-11-16",
-    Genero: "Terror y supervivencia",
-    Puntuacion: 96,
-    Estado: "Pendiente",
-  },
-  {
-    Id: 8,
-    Titulo: "BioShock",
-    Desarrollador: "Irrational Games",
-    Año: "2007-08-21",
-    Genero: "Terror y disparos",
-    Puntuacion: 96,
-    Estado: "Jugando",
-  },
-  {
-    Id: 9,
-    Titulo: "Super Mario Galaxy 2",
-    Desarrollador: "Nintendo",
-    Año: "2010-05-23",
-    Genero: "Plataformas",
-    Puntuacion: 98,
-    Estado: "Finalizado",
-  },
-  {
-    Id: 10,
-    Titulo: "Gran Turismo",
-    Desarrollador: "Polyphony Digital",
-    Año: "1998-05-12",
-    Genero: "Carreras",
-    Puntuacion: 96,
-    Estado: "Finalizado",
-  },
-];
+// const VIDEOJUEGOS = [
+//   {
+//     Id: 1,
+//     Titulo: "Resident Evil 2",
+//     Desarrollador: "Capcom",
+//     Año: "2019-01-25",
+//     Genero: "Terror y supervivencia",
+//     Puntuacion: 91,
+//     Estado: "Finalizado",
+//   },
+//   {
+//     Id: 2,
+//     Titulo: "Elden Ring",
+//     Desarrollador: "FromSoftware",
+//     Año: "2022-02-25",
+//     Genero: "Soulslike",
+//     Puntuacion: 96,
+//     Estado: "Pendiente",
+//   },
+//   {
+//     Id: 3,
+//     Titulo: "The Legend of Zelda: Breath of the Wild",
+//     Desarrollador: "Nintendo",
+//     Año: "2017-03-03",
+//     Genero: "Aventura",
+//     Puntuacion: 97,
+//     Estado: "Pendiente",
+//   },
+//   {
+//     Id: 4,
+//     Titulo: "Red Dead Redemption 2",
+//     Desarrollador: "Rockstar Games",
+//     Año: "2018-10-26",
+//     Genero: "Aventura",
+//     Puntuacion: 97,
+//     Estado: "Jugando",
+//   },
+//   {
+//     Id: 5,
+//     Titulo: "Tekken 3",
+//     Desarrollador: "Namco",
+//     Año: "1998-04-29",
+//     Genero: "Lucha",
+//     Puntuacion: 96,
+//     Estado: "Finalizado",
+//   },
+//   {
+//     Id: 6,
+//     Titulo: "Metroid Prime",
+//     Desarrollador: "Retro Studios",
+//     Año: "2002-11-17",
+//     Genero: "Acción",
+//     Puntuacion: 97,
+//     Estado: "Pendiente",
+//   },
+//   {
+//     Id: 7,
+//     Titulo: "Half-Life 2",
+//     Desarrollador: "Valve Software",
+//     Año: "2004-11-16",
+//     Genero: "Terror y supervivencia",
+//     Puntuacion: 96,
+//     Estado: "Pendiente",
+//   },
+//   {
+//     Id: 8,
+//     Titulo: "BioShock",
+//     Desarrollador: "Irrational Games",
+//     Año: "2007-08-21",
+//     Genero: "Terror y disparos",
+//     Puntuacion: 96,
+//     Estado: "Jugando",
+//   },
+//   {
+//     Id: 9,
+//     Titulo: "Super Mario Galaxy 2",
+//     Desarrollador: "Nintendo",
+//     Año: "2010-05-23",
+//     Genero: "Plataformas",
+//     Puntuacion: 98,
+//     Estado: "Finalizado",
+//   },
+//   {
+//     Id: 10,
+//     Titulo: "Gran Turismo",
+//     Desarrollador: "Polyphony Digital",
+//     Año: "1998-05-12",
+//     Genero: "Carreras",
+//     Puntuacion: 96,
+//     Estado: "Finalizado",
+//   },
+// ];
 
-const DIAS_RECIENTE = 2190; // 6 años
+// const DIAS_RECIENTE = 2190; // 6 años
 
 //LISTADO 1
-function listarTodos(listaJuegos) {
-  const DEV = "Nintendo";
+// function listarTodos(listaJuegos) {
+//   const DEV = "Nintendo";
 
-  console.log("---TODOS LOS JUEGOS---");
-  for (const juego of listaJuegos) {
-    const plataforma =
-      juego.Desarrollador === DEV ? "Exclusivo" : "Multiplataforma";
-    console.log(`${juego.Titulo} - ${plataforma}`);
-  }
-}
+//   console.log("---TODOS LOS JUEGOS---");
+//   for (const juego of listaJuegos) {
+//     const plataforma =
+//       juego.Desarrollador === DEV ? "Exclusivo" : "Multiplataforma";
+//     console.log(`${juego.Titulo} - ${plataforma}`);
+//   }
+// }
 
 //LISTADO 2
-function filtrar(listaJuegos, estado, puntuacion) {
-  let encontrados = 0;
+// function filtrar(listaJuegos, estado, puntuacion) {
+//   let encontrados = 0;
 
-  console.log("---FINALIZADOS Y BUENOS---");
-  for (let i = 0; i < listaJuegos.length; i++) {
-    const juego = listaJuegos[i];
-    if (juego.Estado === estado && juego.Puntuacion >= puntuacion) {
-      console.log(`${juego.Titulo} - ${juego.Puntuacion}`);
-      encontrados++;
-    }
-  }
+//   console.log("---FINALIZADOS Y BUENOS---");
+//   for (let i = 0; i < listaJuegos.length; i++) {
+//     const juego = listaJuegos[i];
+//     if (juego.Estado === estado && juego.Puntuacion >= puntuacion) {
+//       console.log(`${juego.Titulo} - ${juego.Puntuacion}`);
+//       encontrados++;
+//     }
+//   }
 
-  return encontrados;
-}
+//   return encontrados;
+// }
 
 //LISTADO 3
-function contarPorEstado(listaJuegos) {
-  let pendientes = 0;
-  let jugando = 0;
-  let finalizados = 0;
+// function contarPorEstado(listaJuegos) {
+//   let pendientes = 0;
+//   let jugando = 0;
+//   let finalizados = 0;
 
-  for (const juego of listaJuegos) {
-    switch (juego.Estado) {
-      case "Pendiente":
-        pendientes++;
-        break;
-      case "Finalizado":
-        finalizados++;
-        break;
-      case "Jugando":
-        jugando++;
-        break;
-      default:
-        break;
-    }
-  }
+//   for (const juego of listaJuegos) {
+//     switch (juego.Estado) {
+//       case "Pendiente":
+//         pendientes++;
+//         break;
+//       case "Finalizado":
+//         finalizados++;
+//         break;
+//       case "Jugando":
+//         jugando++;
+//         break;
+//       default:
+//         break;
+//     }
+//   }
 
-  console.log(`Pendientes: ${pendientes}, Finalizados: ${finalizados}, Jugando: ${jugando}`);
-}
+//   console.log(`Pendientes: ${pendientes}, Finalizados: ${finalizados}, Jugando: ${jugando}`);
+// }
 
 console.log(`${NOMBRE_APP}: ${VIDEOJUEGOS.length} juegos cargados`);
 console.table(VIDEOJUEGOS);
@@ -163,28 +163,28 @@ contarPorEstado(VIDEOJUEGOS);
 
 // Reto 2
 // Función listar
-function listar(lista) {
-  for (const juego of lista) {
-    console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
-  }
-}
+// function listar(lista) {
+//   for (const juego of lista) {
+//     console.log(`${juego.Id} - ${juego.Titulo} - ${juego.Desarrollador} - ${juego.Año} - ${juego.Genero} - ${juego.Puntuacion} - ${juego.Estado}`);
+//   }
+// }
 
 listar(VIDEOJUEGOS);
 
 // Función buscarPorTexto
-function buscarPorTexto(lista, texto) {
-  const buscado = texto.toLowerCase();
-  const resultado = [];
+// function buscarPorTexto(lista, texto) {
+//   const buscado = texto.toLowerCase();
+//   const resultado = [];
 
-  for (const juego of lista) {
-    const titulo = juego.Titulo.toLowerCase();
-    if (titulo.includes(buscado)) {
-      resultado.push(juego);
-    }
-  }
+//   for (const juego of lista) {
+//     const titulo = juego.Titulo.toLowerCase();
+//     if (titulo.includes(buscado)) {
+//       resultado.push(juego);
+//     }
+//   }
 
-  return resultado;
-}
+//   return resultado;
+// }
 
 const listaTexto = buscarPorTexto(VIDEOJUEGOS, "evil");
 
@@ -197,12 +197,12 @@ if (listaTexto.length < 1) {
 }
 
 // Función añadir
-function añadir(lista, juego) {
-  const nuevoId = lista[lista.length - 1].Id + 1;
-  juego.Id = nuevoId;
-  lista.push(juego);
-  return nuevoId;
-}
+// function añadir(lista, juego) {
+//   const nuevoId = lista[lista.length - 1].Id + 1;
+//   juego.Id = nuevoId;
+//   lista.push(juego);
+//   return nuevoId;
+// }
 
 console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, {
   Titulo: "Resident Evil 4",
@@ -214,16 +214,16 @@ console.log(`Juego añadido con id ${añadir(VIDEOJUEGOS, {
 })}`);
 
 // Función eliminar por id
-function eliminarPorId(lista, id) {
-  for (const juego of lista) {
-    if (juego.Id === id) {
-      lista.splice(lista.indexOf(juego), 1);
-      return true;
-    }
-  }
+// function eliminarPorId(lista, id) {
+//   for (const juego of lista) {
+//     if (juego.Id === id) {
+//       lista.splice(lista.indexOf(juego), 1);
+//       return true;
+//     }
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
 if (eliminarPorId(VIDEOJUEGOS, 8)) {
   console.log("Juego eliminado con exito")
@@ -232,129 +232,129 @@ if (eliminarPorId(VIDEOJUEGOS, 8)) {
 }
 
 //Función estadísticas
-function estadisticas(lista) {
+// function estadisticas(lista) {
 
-  if (lista.length === 0) {
-    return null;
-  }
+//   if (lista.length === 0) {
+//     return null;
+//   }
 
-  let suma = 0;
-  let maximo = lista[0];
+//   let suma = 0;
+//   let maximo = lista[0];
 
-  for (const juego of lista) {
-    suma += juego.Puntuacion;
+//   for (const juego of lista) {
+//     suma += juego.Puntuacion;
 
-    if (juego.Puntuacion > maximo.Puntuacion) {
-      maximo = juego;
-    }
-  }
+//     if (juego.Puntuacion > maximo.Puntuacion) {
+//       maximo = juego;
+//     }
+//   }
 
-  const media = suma / lista.length;
+//   const media = suma / lista.length;
 
-  return { total: suma, media: media, maximo: maximo }
+//   return { total: suma, media: media, maximo: maximo }
 
-}
+// }
 
 estadisticas(VIDEOJUEGOS);
 
-// ========================= SPRINT 1 =========================
+// // ========================= SPRINT 1 =========================
 
-// Reto 2
+// // Reto 2
 
-const listado = document.querySelector("#listado");
+// const listado = document.querySelector("#listado");
 
-let totalJuegos = 0;
+// let totalJuegos = 0;
 
-function crearTarjeta(juego) {
-  const tarjeta = document.createElement("article");
-  tarjeta.classList.add("tarjeta");
+// function crearTarjeta(juego) {
+//   const tarjeta = document.createElement("article");
+//   tarjeta.classList.add("tarjeta");
 
-  const titulo = document.createElement("h3");
-  titulo.textContent = juego.Titulo;
+//   const titulo = document.createElement("h3");
+//   titulo.textContent = juego.Titulo;
 
-  const datos = document.createElement("parrafo");
-  datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
+//   const datos = document.createElement("parrafo");
+//   datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
 
-  const fecha = document.createElement("p");
-  fecha.classList.add("fecha");
-  fecha.textContent = fechaLegible(juego.Año);
-  if (diasDesde(juego.Año) <= DIAS_RECIENTE) {
-    tarjeta.classList.add("reciente");
-  }
+//   const fecha = document.createElement("p");
+//   fecha.classList.add("fecha");
+//   fecha.textContent = fechaLegible(juego.Año);
+//   if (diasDesde(juego.Año) <= DIAS_RECIENTE) {
+//     tarjeta.classList.add("reciente");
+//   }
 
-  tarjeta.append(titulo, datos, fecha);
+//   tarjeta.append(titulo, datos, fecha);
 
-  return tarjeta;
-}
+//   return tarjeta;
+// }
 
-const resumen = document.querySelector("#resumen");
+// const resumen = document.querySelector("#resumen");
 
-function pintar(lista) {
-  listado.replaceChildren();
-  totalJuegos = 0;
-  for (const juego of lista) {
-    listado.append(crearTarjeta(juego));
-    totalJuegos++;
-  }
+// function pintar(lista) {
+//   listado.replaceChildren();
+//   totalJuegos = 0;
+//   for (const juego of lista) {
+//     listado.append(crearTarjeta(juego));
+//     totalJuegos++;
+//   }
 
-  if (lista.length > 0) {
-    resumen.textContent = `Mostrando ${totalJuegos} de ${VIDEOJUEGOS.length} videojuegos`;
-  } else {
-    resumen.textContent = `No hay videojuegos que contengan ${buscador.value}`;
-  }
+//   if (lista.length > 0) {
+//     resumen.textContent = `Mostrando ${totalJuegos} de ${VIDEOJUEGOS.length} videojuegos`;
+//   } else {
+//     resumen.textContent = `No hay videojuegos que contengan ${buscador.value}`;
+//   }
   
-}
+// }
 
-const pEstadisticas = document.querySelector("#estadisticas");
+// const pEstadisticas = document.querySelector("#estadisticas");
 
-function pintarEstadisticas(lista) {
-  let stats = estadisticas(lista);
+// function pintarEstadisticas(lista) {
+//   let stats = estadisticas(lista);
 
-  if (stats === null) {
-    console.warn("No hay datos");
-    return;
-  } else {
-    pEstadisticas.textContent = `${stats.total} de puntos totales - ${stats.media} de puntuación media - Máxima Puntuación: ${stats.maximo.Puntuacion}`;
-  }
-}
+//   if (stats === null) {
+//     console.warn("No hay datos");
+//     return;
+//   } else {
+//     pEstadisticas.textContent = `${stats.total} de puntos totales - ${stats.media} de puntuación media - Máxima Puntuación: ${stats.maximo.Puntuacion}`;
+//   }
+// }
 
-pintarEstadisticas(VIDEOJUEGOS);
+// pintarEstadisticas(VIDEOJUEGOS);
 
-//Reto 2 Parte B
+// //Reto 2 Parte B
 
-let textoBuscado = "";
-let criterio = "ninguno";
+// let textoBuscado = "";
+// let criterio = "ninguno";
 
-function ordenar(lista, criterio) {
-  const copia = [...lista];
-  if (criterio === "nombre") {
-    copia.sort((a, b) =>
-      a.Titulo.localeCompare(b.Titulo)
-    );
-  } else if (criterio === "puntuacion") {
-    copia.sort((a, b) => b.Puntuacion - a.Puntuacion);
-  } else if (criterio === "fecha") {
-    copia.sort((a, b) => crearFecha(b.Año) - crearFecha(a.Año));
-  }
+// function ordenar(lista, criterio) {
+//   const copia = [...lista];
+//   if (criterio === "nombre") {
+//     copia.sort((a, b) =>
+//       a.Titulo.localeCompare(b.Titulo)
+//     );
+//   } else if (criterio === "puntuacion") {
+//     copia.sort((a, b) => b.Puntuacion - a.Puntuacion);
+//   } else if (criterio === "fecha") {
+//     copia.sort((a, b) => crearFecha(b.Año) - crearFecha(a.Año));
+//   }
 
-  return copia;
-}
+//   return copia;
+// }
 
-function actualizar() {
-  const encontrados = buscarPorTexto(VIDEOJUEGOS, textoBuscado);
-  const ordenados = ordenar(encontrados, criterio);
-  pintar(ordenados);
-}
+// function actualizar() {
+//   const encontrados = buscarPorTexto(VIDEOJUEGOS, textoBuscado);
+//   const ordenados = ordenar(encontrados, criterio);
+//   pintar(ordenados);
+// }
 
-let buscador = document.querySelector("#buscador");
-let ordenPuntuacion = document.querySelector("#ordenPuntuacion");
-let ordenNombre = document.querySelector("#ordenNombre");
-let ordenFecha = document.querySelector("#ordenFecha");
+// let buscador = document.querySelector("#buscador");
+// let ordenPuntuacion = document.querySelector("#ordenPuntuacion");
+// let ordenNombre = document.querySelector("#ordenNombre");
+// let ordenFecha = document.querySelector("#ordenFecha");
 
-buscador.addEventListener("input", () => {
-  textoBuscado = buscador.value;
-  actualizar();
-});
+// buscador.addEventListener("input", () => {
+//   textoBuscado = buscador.value;
+//   actualizar();
+// });
 
 /*
 ordenNombre.addEventListener("click", () => {
@@ -363,9 +363,9 @@ ordenNombre.addEventListener("click", () => {
 });
 */
 
-ordenNombre.addEventListener("click", () => {
-  elegirOrden("nombre")
-});
+// ordenNombre.addEventListener("click", () => {
+//   elegirOrden("nombre")
+// });
 
 /*
 ordenPuntuacion.addEventListener("click", () => {
@@ -374,93 +374,93 @@ ordenPuntuacion.addEventListener("click", () => {
 });
 */
 
-ordenPuntuacion.addEventListener("click", () => {
-  elegirOrden("puntuacion")
-});
+// ordenPuntuacion.addEventListener("click", () => {
+//   elegirOrden("puntuacion")
+// });
 
-ordenFecha.addEventListener("click", () => {
-  elegirOrden("fecha")
-})
+// ordenFecha.addEventListener("click", () => {
+//   elegirOrden("fecha")
+// })
 
-// Retos sesión 12
-// Parte A - Reto 1
-// A1 - Guardar y leer una cookie
+// // Retos sesión 12
+// // Parte A - Reto 1
+// // A1 - Guardar y leer una cookie
 
-function guardarCookie(nombre, valor, dias) {
-  const segundos = dias * 24 * 60 * 60;
-  const texto = encodeURIComponent(valor);
-  document.cookie = `${nombre}=${texto}; max-age=${segundos}; path=/`;
-}
+// function guardarCookie(nombre, valor, dias) {
+//   const segundos = dias * 24 * 60 * 60;
+//   const texto = encodeURIComponent(valor);
+//   document.cookie = `${nombre}=${texto}; max-age=${segundos}; path=/`;
+// }
 
-function leerCookie(nombre) {
-  const partes = document.cookie.split("; ");
-  for (const parte of partes) {
-    const [clave, valor] = parte.split("=");
-    if (clave === nombre) {
-      return decodeURIComponent(valor);
-    }
-  }
-  return null;
-}
+// function leerCookie(nombre) {
+//   const partes = document.cookie.split("; ");
+//   for (const parte of partes) {
+//     const [clave, valor] = parte.split("=");
+//     if (clave === nombre) {
+//       return decodeURIComponent(valor);
+//     }
+//   }
+//   return null;
+// }
 
-// A2 - Guardar el orden al pulsar un botón
-function elegirOrden(nuevo) {
-  criterio = nuevo;
-  guardarCookie("orden", criterio, 30);
-  actualizar();
-}
+// // A2 - Guardar el orden al pulsar un botón
+// function elegirOrden(nuevo) {
+//   criterio = nuevo;
+//   guardarCookie("orden", criterio, 30);
+//   actualizar();
+// }
 
-// A3 - Aplicar orden al cargar
+// // A3 - Aplicar orden al cargar
 
-criterio = leerCookie("orden") ?? "ninguno";
-actualizar();
+// criterio = leerCookie("orden") ?? "ninguno";
+// actualizar();
 
-// Parte B - Reto 2
-// B2 - Tres funciones para las fechas
+// // Parte B - Reto 2
+// // B2 - Tres funciones para las fechas
 
-function crearFecha(texto) {
-  return new Date(texto + "T00:00");
-}
+// function crearFecha(texto) {
+//   return new Date(texto + "T00:00");
+// }
 
-function fechaLegible(texto) {
-  return crearFecha(texto).toLocaleDateString("es-ES", 
-    {day:"numeric", month:"long", year:"numeric"}
-  );
-}
+// function fechaLegible(texto) {
+//   return crearFecha(texto).toLocaleDateString("es-ES", 
+//     {day:"numeric", month:"long", year:"numeric"}
+//   );
+// }
 
-function diasDesde(texto) {
-  const MS_DIA = 24 * 60 * 60 * 1000;
-  const ms = Date.now() - crearFecha(texto).getTime();
-  return Math.floor(ms/MS_DIA);
-}
+// function diasDesde(texto) {
+//   const MS_DIA = 24 * 60 * 60 * 1000;
+//   const ms = Date.now() - crearFecha(texto).getTime();
+//   return Math.floor(ms/MS_DIA);
+// }
 
 // B3 - La fecha en la tarjeta y lo reciente, destacado
 
-// B4 - Ordenar por fecha
+// B4 - Ordenar por fecha// D - Campo validado con expresión regular
+// const PATRON_TITULO = /^.{2,40}$/;
 
-// D - Campo validado con expresión regular
-const PATRON_TITULO = /^.{2,40}$/;
+// const formulario = document.querySelector("#anadir");
 
-const formulario = document.querySelector("#anadir");
+// const campo = document.querySelector("#campo")
 
-const campo = document.querySelector("#campo")
+// formulario.addEventListener("submit", (event) => {
+//   event.preventDefault(); // Evita que la página recargue
+//   const titulo = campo.value.trim();
 
-formulario.addEventListener("submit", (event) => {
-  event.preventDefault(); // Evita que la página recargue
-  const titulo = campo.value.trim();
+//   if (!PATRON_TITULO.test(titulo)) {
+//     alert("Entre 2 y 40 letras");
+//     return;
+//   }
 
-  if (!PATRON_TITULO.test(titulo)) {
-    alert("Entre 2 y 40 letras");
-    return;
-  }
+//   añadir(VIDEOJUEGOS, {Titulo: titulo,
+//     Desarrollador: "Desconocido",
+//     Año: new Date().toISOString().slice(0, 10),
+//     Genero: "Desconocido",
+//     Puntuacion: 0,
+//     Estado: "Pendiente",});
 
-  añadir(VIDEOJUEGOS, {Titulo: titulo,
-    Desarrollador: "Desconocido",
-    Año: new Date().toISOString().slice(0, 10),
-    Genero: "Desconocido",
-    Puntuacion: 0,
-    Estado: "Pendiente",});
+//   actualizar();
 
-  actualizar();
+// });
 
-});
+// 
