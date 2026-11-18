@@ -20,6 +20,10 @@ body {
     border-left: 6px solid #f26b3a;
 }
 
+.bueno {
+    border-left: 6px solid green;
+}
+
 .fecha {
     color: #6b7785;
     font-size: .9rem;

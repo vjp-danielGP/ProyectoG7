@@ -1,6 +1,6 @@
 export const NOMBRE_APP = "BiblioGame";
 
-export const VIDEOJUEGOS = [
+export const datosVideojuegos = [
   {
     Id: 1,
     Titulo: "Resident Evil 2",

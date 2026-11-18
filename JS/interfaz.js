@@ -1,7 +1,14 @@
-import { VIDEOJUEGOS } from "./datos.js";
+import { datosVideojuegos } from "./datos.js";
 import { añadir, ordenar, buscarPorTexto, estadisticas, fechaLegible, diasDesde } from "./logica.js";
+import { Videojuego } from "./videojuego.js";
 
+const videojuegos = [];
+
+for (const datos of datosVideojuegos) {
+  videojuegos.push(new Videojuego(datos));
+}
 const DIAS_RECIENTE = 2190; // 6 años
+const puntuacionBueno = 97;
 
 let textoBuscado = "";
 let criterio = "ninguno";
@@ -22,13 +29,17 @@ function crearTarjeta(juego) {
   titulo.textContent = juego.Titulo;
 
   const datos = document.createElement("p");
-  datos.textContent = `${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
+  datos.textContent = juego.descripcion();//`${juego.Desarrollador} - ${juego.Genero} - ${juego.Puntuacion}`;
 
   const fecha = document.createElement("p");
   fecha.classList.add("fecha");
   fecha.textContent = fechaLegible(juego.Año);
   if (diasDesde(juego.Año) <= DIAS_RECIENTE) {
     tarjeta.classList.add("reciente");
+  }
+
+  if (juego.esBueno(puntuacionBueno)) {
+    tarjeta.classList.add("bueno");
   }
 
   tarjeta.append(titulo, datos, fecha);
@@ -47,11 +58,11 @@ function pintar(lista) {
   }
 
   if (lista.length > 0) {
-    resumen.textContent = `Mostrando ${totalJuegos} de ${VIDEOJUEGOS.length} videojuegos`;
+    resumen.textContent = `Mostrando ${totalJuegos} de ${videojuegos.length} videojuegos`;
   } else {
     resumen.textContent = `No hay videojuegos que contengan ${buscador.value}`;
   }
-  
+
 }
 
 const pEstadisticas = document.querySelector("#estadisticas");
@@ -67,10 +78,10 @@ function pintarEstadisticas(lista) {
   }
 }
 
-pintarEstadisticas(VIDEOJUEGOS);
+pintarEstadisticas(videojuegos);
 
 function actualizar() {
-  const encontrados = buscarPorTexto(VIDEOJUEGOS, textoBuscado);
+  const encontrados = buscarPorTexto(videojuegos, textoBuscado);
   const ordenados = ordenar(encontrados, criterio);
   pintarEstadisticas(ordenados);
   pintar(ordenados);
@@ -147,12 +158,14 @@ formulario.addEventListener("submit", (event) => {
     return;
   }
 
-  añadir(VIDEOJUEGOS, {Titulo: titulo,
+  añadir(videojuegos, {
+    Titulo: titulo,
     Desarrollador: "Desconocido",
     Año: new Date().toISOString().slice(0, 10),
     Genero: "Desconocido",
     Puntuacion: 0,
-    Estado: "Pendiente",});
+    Estado: "Pendiente",
+  });
 
   actualizar();
 
