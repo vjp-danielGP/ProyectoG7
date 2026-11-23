@@ -1,3 +1,7 @@
+/**
+ * Un videojuego de la biblioteca.
+ */
+
 export class Videojuego {
     constructor(datos) {
         this.Id = datos.Id;
@@ -16,6 +20,11 @@ export class Videojuego {
         this._Puntuacion = valor;
     }
 
+    /**
+     * Comprueba si un videojuego es bueno dependiendo de su puntuación.
+     * @param {number} puntuacionLimite - Puntuación mínima para considerar bueno un videojuego.
+     * @returns {boolean} true si alcanza el límite, false en caso contrario.
+     */
     esBueno(puntuacionLimite) {
         if (this.Puntuacion >= puntuacionLimite) {
             return true;
@@ -24,6 +33,10 @@ export class Videojuego {
         }
     }
 
+    /**
+     * Obtiene una descripción del videojuego.
+     * @returns {string} Desarrollador, género y puntuación del videojuego.
+     */
     descripcion() {
         return `${this.Desarrollador} - ${this.Genero} - ${this.Puntuacion}`;
     }

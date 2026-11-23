@@ -1,12 +1,10 @@
+import { Biblioteca } from "./biblioteca.js";
 import { datosVideojuegos } from "./datos.js";
-import { añadir, ordenar, buscarPorTexto, estadisticas, fechaLegible, diasDesde } from "./logica.js";
+import { ordenar, estadisticas, fechaLegible, diasDesde } from "./logica.js";
 import { Videojuego } from "./videojuego.js";
 
-const videojuegos = [];
+const biblioteca = Biblioteca.desdeDatos(datosVideojuegos);
 
-for (const datos of datosVideojuegos) {
-  videojuegos.push(new Videojuego(datos));
-}
 const DIAS_RECIENTE = 2190; // 6 años
 const puntuacionBueno = 97;
 
@@ -58,7 +56,7 @@ function pintar(lista) {
   }
 
   if (lista.length > 0) {
-    resumen.textContent = `Mostrando ${totalJuegos} de ${videojuegos.length} videojuegos`;
+    resumen.textContent = `Mostrando ${totalJuegos} de ${biblioteca.total} videojuegos`;
   } else {
     resumen.textContent = `No hay videojuegos que contengan ${buscador.value}`;
   }
@@ -78,10 +76,10 @@ function pintarEstadisticas(lista) {
   }
 }
 
-pintarEstadisticas(videojuegos);
+pintarEstadisticas(biblioteca.listar());
 
 function actualizar() {
-  const encontrados = buscarPorTexto(videojuegos, textoBuscado);
+  const encontrados = biblioteca.buscar(textoBuscado);
   const ordenados = ordenar(encontrados, criterio);
   pintarEstadisticas(ordenados);
   pintar(ordenados);
@@ -158,14 +156,14 @@ formulario.addEventListener("submit", (event) => {
     return;
   }
 
-  añadir(videojuegos, {
+  biblioteca.añadir(new Videojuego({
     Titulo: titulo,
     Desarrollador: "Desconocido",
     Año: new Date().toISOString().slice(0, 10),
     Genero: "Desconocido",
     Puntuacion: 0,
     Estado: "Pendiente",
-  });
+  }));
 
   actualizar();
 
