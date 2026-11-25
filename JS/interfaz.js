@@ -63,17 +63,26 @@ function pintar(lista) {
 
 }
 
-const pEstadisticas = document.querySelector("#estadisticas");
-
-function pintarEstadisticas(lista) {
-  let stats = estadisticas(lista);
-
-  if (stats === null) {
-    pEstadisticas.textContent = "No hay datos";
+function pintarEstadisticas() {
+  const panel = document.querySelector("#estadisticas");
+  panel.replaceChildren();
+  const datos = biblioteca.estadisticas();
+  if (datos === null) {
+    //aviso
     return;
-  } else {
-    pEstadisticas.textContent = `${stats.total} de puntos totales - ${stats.media} de puntuación media - Máxima Puntuación: ${stats.maximo.Puntuacion}`;
   }
+  const lineas = [
+    `Máxima puntuación: ${datos.maxP}`,
+    `Puntuación media: ${datos.media}`,
+    `Puntuación media de Nintendo: ${datos.mediaNintendo}`
+  ];
+
+  for (const l of lineas) {
+    const elemento = document.createElement("li");
+    elemento.textContent = l;
+    panel.append(elemento);
+  }
+
 }
 
 pintarEstadisticas(biblioteca.listar());
@@ -81,7 +90,7 @@ pintarEstadisticas(biblioteca.listar());
 function actualizar() {
   const encontrados = biblioteca.buscar(textoBuscado);
   const ordenados = ordenar(encontrados, criterio);
-  pintarEstadisticas(ordenados);
+  pintarEstadisticas();
   pintar(ordenados);
 }
 

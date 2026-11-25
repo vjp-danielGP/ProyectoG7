@@ -36,7 +36,7 @@ export class Biblioteca {
      * @param {number} id - Identificador del videojuego que se desea eliminar.
      * @returns {boolean} true si se elimina correctamente, false en caso contrario.
      */
-    eliminar(id) { 
+    eliminar(id) {
         for (let i = 0; i < this._videojuegos.length; i++) {
             if (this._videojuegos[i].Id === id) {
                 this._videojuegos.splice(i, 1);
@@ -60,5 +60,22 @@ export class Biblioteca {
         }
 
         return new Biblioteca(videojuegos);
+    }
+
+    estadisticas() {
+        if (this._videojuegos.length === 0) {
+            return null;
+        }
+
+        const total = this._videojuegos.reduce((suma, v) => suma + v.Puntuacion, 0);
+        const maxP = [...this._videojuegos].sort((a, b) => b.Puntuacion - a.Puntuacion);
+
+        //Puntuación total videojuegos de Nintendo
+        const totalNintendo = this._videojuegos
+            .filter((v) => v.Desarrollador === "Nintendo")
+            .map((v) => v.Puntuacion)
+            .reduce((suma, v) => suma + v, 0);
+
+        return { maxP: maxP[0].Puntuacion, media: total / this._videojuegos.length, mediaNintendo: totalNintendo / this._videojuegos.filter((v) => v.Desarrollador === "Nintendo").length };
     }
 }
