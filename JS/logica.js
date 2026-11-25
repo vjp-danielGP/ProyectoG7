@@ -58,14 +58,7 @@ function listar(lista) {
 // Función buscarPorTexto
 export function buscarPorTexto(lista, texto) {
   const buscado = texto.toLowerCase();
-  const resultado = [];
-
-  for (const juego of lista) {
-    const titulo = juego.Titulo.toLowerCase();
-    if (titulo.includes(buscado)) {
-      resultado.push(juego);
-    }
-  }
+  const resultado = lista.filter((v) => v.Titulo.toLowerCase().includes(buscado));
 
   return resultado;
 }

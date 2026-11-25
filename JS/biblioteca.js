@@ -53,12 +53,8 @@ export class Biblioteca {
      * @returns {Biblioteca} Biblioteca los videojuegos creados.
      */
     static desdeDatos(datos) {
-        const videojuegos = [];
-
-        for (const d of datos) {
-            videojuegos.push(new Videojuego(d));
-        }
-
+        const videojuegos = datos.map((d) => new Videojuego(d));
+        
         return new Biblioteca(videojuegos);
     }
 
